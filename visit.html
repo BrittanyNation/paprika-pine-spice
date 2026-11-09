@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visit &amp; Workshops — Paprika & Pine Spice Co.</title>
+  <meta name="description" content="Visit Paprika &amp; Pine Spice Co. in Clarksville, Tennessee — hours, spice-blending workshops with RSVP, FAQs, and The Spice Rack Letter newsletter.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Visit &amp; Workshops — Paprika & Pine Spice Co.">
+  <meta property="og:description" content="Shop hours, hands-on blending workshops, FAQs, and The Spice Rack Letter newsletter.">
+  <meta property="og:image" content="https://brittanynation.github.io/paprika-pine-spice/og-image.png">
+  <meta property="og:url" content="https://brittanynation.github.io/paprika-pine-spice/visit.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Paprika & Pine <span>Spice Co.</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Shop Spices</a>
+        <a href="cart.html">Basket &amp; Checkout</a>
+        <a href="visit.html" aria-current="page">Visit &amp; Workshops</a>
+      </nav>
+      <button class="basket-btn" id="basketBtn" type="button" aria-label="Open your basket">Basket (0)</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="section-head">
+        <h2>Visit the shop</h2>
+        <p>214 Spice Row, Clarksville, Tennessee — two blocks from the farmers market. Come in for a jar or two, or stay for a workshop and leave with a blend you made yourself.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="photo-frame">
+          <img src="images/shop.jpg" alt="Glass jars of spices on a rustic wooden shelf inside the Paprika &amp; Pine shop">
+        </div>
+        <div class="panel">
+          <h2>Hours</h2>
+          <p class="sub">Today is highlighted so you always know if we're open.</p>
+          <table class="hours-table" id="hoursTable">
+            <tbody>
+              <tr data-day="1"><td>Monday</td><td>9:00 AM – 6:00 PM</td></tr>
+              <tr data-day="2"><td>Tuesday</td><td>9:00 AM – 6:00 PM</td></tr>
+              <tr data-day="3"><td>Wednesday</td><td>9:00 AM – 6:00 PM</td></tr>
+              <tr data-day="4"><td>Thursday</td><td>9:00 AM – 6:00 PM</td></tr>
+              <tr data-day="5"><td>Friday</td><td>9:00 AM – 6:00 PM</td></tr>
+              <tr data-day="6"><td>Saturday</td><td>9:00 AM – 6:00 PM</td></tr>
+              <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <p class="hint" style="margin-top:14px">Same-day delivery orders close at 2 PM. Pickup orders are ready in about an hour.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Workshops at the blending bench</h2>
+        <p>Small classes, eight seats at most, all spices and tools included. Reserve a seat below — you'll get a reference number to bring with you.</p>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div class="workshop-card">
+            <h3>Saturday Morning Blend Your Own Garam Masala</h3>
+            <p>Every Saturday · 10:00 AM · 90 minutes · $42 per seat</p>
+            <p>Toast, grind and blend your own garam masala from whole spices, then take home the jar you made. All spices and tools included.</p>
+            <p class="seats" id="seats-w1">8 seats left</p>
+          </div>
+          <div class="workshop-card">
+            <h3>Wednesday Evening Chili &amp; Smoke Tasting</h3>
+            <p>Every Wednesday · 6:30 PM · 2 hours · $28 per seat</p>
+            <p>Taste your way through smoked paprika, chipotle, cayenne and Calabrian chili, then blend a house hot sauce to take home. All materials included.</p>
+            <p class="seats" id="seats-w2">5 seats left</p>
+          </div>
+          <div class="photo-frame">
+            <img src="images/workshop.jpg" alt="Spoons of colorful ground spices arranged on a marble table at a blending workshop" style="min-height:200px">
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Reserve a seat</h2>
+          <p class="sub">Pick a workshop and a date — classes run every week on the same day.</p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="rsvpName">Your name</label>
+              <input type="text" id="rsvpName" autocomplete="off" placeholder="Your full name">
+              <span class="error">Please enter your name.</span>
+            </div>
+            <div class="field">
+              <label for="rsvpEmail">Your email</label>
+              <input type="email" id="rsvpEmail" autocomplete="off" placeholder="you@example.com">
+              <span class="error">Please enter a valid email address.</span>
+            </div>
+            <div class="field">
+              <label for="rsvpWorkshop">Workshop</label>
+              <select id="rsvpWorkshop">
+                <option value="w1">Saturday Morning Blend Your Own Garam Masala — $42</option>
+                <option value="w2">Wednesday Evening Chili &amp; Smoke Tasting — $28</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="rsvpDate">Date</label>
+              <input type="date" id="rsvpDate">
+              <span class="error" id="rsvpDateError">Pick a future date on the right weekday for that workshop.</span>
+            </div>
+            <div class="field">
+              <label for="rsvpSeats">Seats (1–4)</label>
+              <input type="number" id="rsvpSeats" min="1" max="4" value="1">
+              <span class="error">Please reserve between 1 and 4 seats.</span>
+            </div>
+          </div>
+          <p class="form-msg bad" id="rsvpError" role="alert"></p>
+          <button class="btn btn-rose" id="rsvpBtn" type="button">Reserve my seat</button>
+          <div id="rsvpSuccess" hidden>
+            <p class="form-msg ok" id="rsvpMsg" style="margin-top:14px"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Good to know</h2>
+        <p>The questions people actually ask at the counter.</p>
+      </div>
+      <div class="accordion" id="faqAccordion">
+        <div class="acc-item">
+          <button class="acc-btn" type="button" aria-expanded="false">How long do your spices stay fresh? <span class="acc-icon">+</span></button>
+          <div class="acc-panel"><p>Ground spices stay bright for 6 to 12 months; whole spices keep 2 to 3 years. Keep jars cool, dark and dry, and sniff before you cook — if the smell has faded, the flavor has too. Every batch is dated on the jar, and any jar that arrives stale gets replaced — just tell us.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn" type="button" aria-expanded="false">Can I send spices to someone outside Clarksville? <span class="acc-icon">+</span></button>
+          <div class="acc-panel"><p>Our own delivery covers Clarksville and the surrounding area. For anywhere else in the country, we ship by mail — spice jars travel well in our padded boxes, and shipping is free over $60 just like delivery.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn" type="button" aria-expanded="false">Do you do wedding favors or bulk orders? <span class="acc-icon">+</span></button>
+          <div class="acc-panel"><p>Yes — small Taster jars make good table favors, and Pantry jars cover a big kitchen. For wedding or restaurant orders, book a free consultation at the shop at least six weeks ahead.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn" type="button" aria-expanded="false">What if nobody is home for a delivery? <span class="acc-icon">+</span></button>
+          <div class="acc-panel"><p>We leave the order in a shaded spot by the door with a note, and text you a photo of where it is. If the weather is harsh, we bring it back to the shop and reschedule for free.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="newsletter-box">
+        <h2>The Spice Rack Letter</h2>
+        <p>One short email a week: the new spice of the month, one pantry tip, and first pick of Saturday workshop seats. No spam, ever.</p>
+        <form id="newsletterForm" novalidate>
+          <input type="email" id="newsletterEmail" placeholder="Your email address" aria-label="Email address for the newsletter">
+          <button class="btn btn-rose" type="submit">Subscribe</button>
+        </form>
+        <p class="form-msg" id="newsletterMsg"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Basket drawer (shared with the shop page) -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="basketDrawer" aria-label="Your basket">
+    <div class="drawer-head">
+      <h2>Your basket</h2>
+      <button class="modal-close" id="drawerClose" type="button" aria-label="Close basket">&times;</button>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+    <div class="drawer-foot" id="drawerFoot"></div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <strong>Paprika & Pine Spice Co.</strong>
+        <p>214 Spice Row, Clarksville, Tennessee</p>
+        <p>Open Monday to Saturday, 9 AM to 6 PM. Closed Sundays.</p>
+      </div>
+      <div>
+        <strong>Good to know</strong>
+        <p><a href="index.html">Shop spices</a> &middot; <a href="cart.html">Basket &amp; checkout</a></p>
+        <p>A fictional portfolio concept by Brittany Nation. No real orders are placed.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="visit.js"></script>
+</body>
+</html>

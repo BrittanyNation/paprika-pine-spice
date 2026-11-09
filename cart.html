@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basket &amp; Checkout — Paprika & Pine Spice Co.</title>
+  <meta name="description" content="Review your basket, choose delivery or pickup, and check out with a real confirmation from Paprika &amp; Pine Spice Co..">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Basket &amp; Checkout — Paprika & Pine Spice Co.">
+  <meta property="og:description" content="Delivery or pickup, a gift message, promo code SPICE10, and a real confirmation for every order.">
+  <meta property="og:image" content="https://brittanynation.github.io/paprika-pine-spice/og-image.png">
+  <meta property="og:url" content="https://brittanynation.github.io/paprika-pine-spice/cart.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Paprika & Pine <span>Spice Co.</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Shop Spices</a>
+        <a href="cart.html" aria-current="page">Basket &amp; Checkout</a>
+        <a href="visit.html">Visit &amp; Workshops</a>
+      </nav>
+      <button class="basket-btn" id="basketBtn" type="button" aria-label="Your basket count">Basket (0)</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="section-head">
+        <h2>Basket &amp; checkout</h2>
+        <p>Delivery is $6.95 and free once your order reaches $60 after discounts. The shop is closed Sundays, and same-day delivery closes at 2 PM. Pickup is always free at 214 Spice Row.</p>
+      </div>
+
+      <div id="checkoutView">
+        <div class="checkout-layout">
+          <div>
+            <div class="panel">
+              <h2>1 · How should it arrive?</h2>
+              <p class="sub">Delivery to a Clarksville address, or pick it up at the shop.</p>
+              <div class="radio-row" role="radiogroup" aria-label="Delivery or pickup">
+                <label class="radio-card">
+                  <input type="radio" name="fulfilment" value="delivery" checked>
+                  <strong>Delivery — $6.95</strong>
+                  <span>Free over $60 after discounts. Same-day by 2 PM, Mon–Sat.</span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="fulfilment" value="pickup">
+                  <strong>Pickup — free</strong>
+                  <span>214 Spice Row. Ready in one hour, Mon–Sat 9 AM–6 PM.</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h2>2 · When &amp; where</h2>
+              <p class="sub">Choose a date and, for delivery, the address it is going to.</p>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="orderDate">Delivery / pickup date</label>
+                  <input type="date" id="orderDate">
+                  <span class="error" id="orderDateError">Pick a date from today onward — and not a Sunday, when the shop is closed.</span>
+                  <span class="hint">Sundays are closed. Same-day delivery closes at 2 PM.</span>
+                </div>
+                <div class="field">
+                  <label for="recipientName">Recipient name</label>
+                  <input type="text" id="recipientName" autocomplete="off" placeholder="Who is it for?">
+                  <span class="error">Please enter the recipient's name.</span>
+                </div>
+                <div class="field full" id="addressField">
+                  <label for="deliveryAddress">Delivery address</label>
+                  <input type="text" id="deliveryAddress" autocomplete="off" placeholder="Street address, Clarksville, TN">
+                  <span class="error">Please enter a delivery address.</span>
+                </div>
+                <div class="field full">
+                  <label for="giftMessage">Gift message <span class="hint">(optional, up to 200 characters)</span></label>
+                  <textarea id="giftMessage" rows="2" maxlength="200" placeholder="Write what the card should say…"></textarea>
+                  <span class="hint" id="giftCount">0 / 200 characters</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h2>3 · Your details &amp; payment</h2>
+              <p class="sub">This is a portfolio demo — no real payment is taken and no card is charged.</p>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="buyerName">Your name</label>
+                  <input type="text" id="buyerName" autocomplete="off" placeholder="Your full name">
+                  <span class="error">Please enter your name.</span>
+                </div>
+                <div class="field">
+                  <label for="buyerEmail">Your email</label>
+                  <input type="email" id="buyerEmail" autocomplete="off" placeholder="you@example.com">
+                  <span class="error">Please enter a valid email address.</span>
+                </div>
+                <div class="field">
+                  <label for="cardNumber">Card number</label>
+                  <input type="text" id="cardNumber" inputmode="numeric" autocomplete="off" placeholder="4242 4242 4242 4242" maxlength="19">
+                  <span class="error">Please enter a 16-digit card number.</span>
+                </div>
+                <div class="field">
+                  <label for="cardExpiry">Expiry (MM/YY)</label>
+                  <input type="text" id="cardExpiry" inputmode="numeric" autocomplete="off" placeholder="MM/YY" maxlength="5">
+                  <span class="error">Please enter a future expiry date as MM/YY.</span>
+                </div>
+                <div class="field">
+                  <label for="cardCvc">CVC</label>
+                  <input type="text" id="cardCvc" inputmode="numeric" autocomplete="off" placeholder="123" maxlength="4">
+                  <span class="error">Please enter the 3- or 4-digit CVC.</span>
+                </div>
+                <div class="field">
+                  <label for="cardZip">Billing ZIP</label>
+                  <input type="text" id="cardZip" inputmode="numeric" autocomplete="off" placeholder="37043" maxlength="5">
+                  <span class="error">Please enter a 5-digit ZIP code.</span>
+                </div>
+              </div>
+              <p class="form-msg bad" id="formError" role="alert"></p>
+              <button class="btn btn-rose" id="placeOrderBtn" type="button">Place order</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="panel" aria-label="Order summary">
+              <h2>Your order</h2>
+              <p class="sub">Quantities update here as you change them in the basket.</p>
+              <div class="summary-lines" id="summaryLines"></div>
+              <div class="promo-row">
+                <input type="text" id="promoInput" placeholder="Promo code" aria-label="Promo code" maxlength="20">
+                <button class="btn btn-ghost" id="promoBtn" type="button">Apply</button>
+              </div>
+              <p class="promo-msg" id="promoMsg"></p>
+              <div class="totals" id="totalsBox"></div>
+              <p class="hint">Try code <strong>SPICE10</strong> for 10% off your order.</p>
+            </div>
+            <div class="panel">
+              <h2>Need to change something?</h2>
+              <p class="sub">Head back to the shop to add more spices, or change a quantity right here.</p>
+              <a class="btn btn-ghost" href="index.html">Back to the shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="confirmationView" hidden>
+        <div class="confirmation">
+          <h2>Thank you — your order is in!</h2>
+          <p class="ref" id="orderRef"></p>
+          <p id="confirmText"></p>
+          <p id="confirmGift"></p>
+          <a class="btn" href="index.html">Shop more spices</a>
+        </div>
+      </div>
+
+      <div id="emptyView" hidden>
+        <div class="empty-state">
+          <strong>Your basket is empty.</strong>
+          Add a spice from the shop first, then come back to check out.
+          <p><a class="btn" href="index.html" style="margin-top:14px">Browse spices</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <strong>Paprika & Pine Spice Co.</strong>
+        <p>214 Spice Row, Clarksville, Tennessee</p>
+        <p>Open Monday to Saturday, 9 AM to 6 PM. Closed Sundays.</p>
+      </div>
+      <div>
+        <strong>Good to know</strong>
+        <p><a href="index.html">Shop spices</a> &middot; <a href="visit.html">Visit &amp; workshops</a></p>
+        <p>A fictional portfolio concept by Brittany Nation. No real orders are placed.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paprika & Pine Spice Co. — Small-Batch Spices, Ground Fresh in Clarksville</title>
+  <meta name="description" content="Paprika & Pine Spice Co. is a neighborhood spice studio in Clarksville, Tennessee. Shop twelve small-batch spices by spice family, pick a jar size, and choose delivery or pickup — every order confirmed with a reference number.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Paprika & Pine Spice Co. — Small-Batch Spices, Ground Fresh in Clarksville">
+  <meta property="og:description" content="Twelve small-batch spices by spice family, three jar sizes, delivery or pickup, and a real confirmation for every order.">
+  <meta property="og:image" content="https://brittanynation.github.io/paprika-pine-spice/og-image.png">
+  <meta property="og:url" content="https://brittanynation.github.io/paprika-pine-spice/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Paprika & Pine <span>Spice Co.</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Shop Spices</a>
+        <a href="cart.html">Basket &amp; Checkout</a>
+        <a href="visit.html">Visit &amp; Workshops</a>
+      </nav>
+      <button class="basket-btn" id="basketBtn" type="button" aria-label="Open your basket">Basket (0)</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <div>
+        <h1>Small-batch spice, <em>ground fresh</em> in Clarksville.</h1>
+        <p>Paprika &amp; Pine Spice Co. is a small neighborhood spice shop. Every spice is ground or blended in small batches in the shop — no warehouses, no stale jars, no fillers. If it is on the shelf, it was ground this month.</p>
+        <div class="hero-cta">
+          <a class="btn btn-rose" href="#shop">Shop spices</a>
+          <a class="btn btn-ghost" href="visit.html">Visit the shop</a>
+        </div>
+      </div>
+      <img src="images/hero.jpg" alt="Colorful spices in small black bowls, viewed from above">
+    </div>
+
+    <div class="trust-band" aria-label="Shop promises">
+      <div class="trust-card"><strong>Ground in small batches</strong><p>Every spice is ground or blended in the shop, never warehoused.</p></div>
+      <div class="trust-card"><strong>Same-day delivery</strong><p>Order by 2 PM for delivery today, Monday to Saturday.</p></div>
+      <div class="trust-card"><strong>Free over $60</strong><p>Delivery is free once your order reaches $60 after discounts.</p></div>
+      <div class="trust-card"><strong>No fillers, ever</strong><p>Just the spice — no anti-caking agents, no salt, no mystery blends.</p></div>
+    </div>
+
+    <section id="shop">
+      <div class="section-head">
+        <h2>The spice shelf</h2>
+        <p>Twelve spices, priced by jar. Taster is the 1 oz jar, Classic is the full 4 oz jar, Pantry is the 8 oz big one. Every spice lists its form so you know exactly what you are getting.</p>
+      </div>
+
+      <div class="toolbar">
+        <input type="search" id="searchInput" placeholder="Search spices or flavors…" aria-label="Search spices">
+        <select id="sortSelect" aria-label="Sort spices">
+          <option value="featured">Sort: Featured</option>
+          <option value="price-asc">Price: low to high</option>
+          <option value="price-desc">Price: high to low</option>
+          <option value="name">Name: A to Z</option>
+        </select>
+      </div>
+      <div class="toolbar">
+        <div class="chips" id="familyChips" role="group" aria-label="Filter by spice family">
+          <button class="chip" type="button" data-family="All" aria-pressed="true">All spices</button>
+          <button class="chip" type="button" data-family="Smoky" aria-pressed="false">Smoky</button>
+          <button class="chip" type="button" data-family="Warm" aria-pressed="false">Warm</button>
+          <button class="chip" type="button" data-family="Hot" aria-pressed="false">Hot</button>
+          <button class="chip" type="button" data-family="Herbal" aria-pressed="false">Herbal</button>
+          <button class="chip" type="button" data-family="Sweet" aria-pressed="false">Sweet</button>
+          <button class="chip" type="button" data-family="Exotic" aria-pressed="false">Exotic</button>
+        </div>
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+      </div>
+
+      <div class="grid" id="spiceGrid"></div>
+    </section>
+  </main>
+
+  <!-- Spice detail modal -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <img id="modalImg" src="" alt="">
+      <div class="modal-body">
+        <button class="modal-close" id="modalClose" type="button" aria-label="Close spice details">&times;</button>
+        <h3 id="modalTitle"></h3>
+        <p class="card-family" id="modalFamily"></p>
+        <p class="desc" id="modalDesc"></p>
+        <div class="size-row" id="sizeRow" role="group" aria-label="Choose a size"></div>
+        <div class="qty-row">
+          <span>Quantity</span>
+          <button type="button" id="qtyMinus" aria-label="Decrease quantity">&minus;</button>
+          <output id="qtyOut" aria-live="polite">1</output>
+          <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
+        </div>
+        <div class="modal-total"><span>Total</span><span id="modalTotal"></span></div>
+        <button class="btn btn-rose" id="modalAddBtn" type="button">Add to basket</button>
+        <p class="modal-note">Ground in small batches and sealed in glass jars. Keep cool, dark, and dry.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Basket drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="basketDrawer" aria-label="Your basket">
+    <div class="drawer-head">
+      <h2>Your basket</h2>
+      <button class="modal-close" id="drawerClose" type="button" aria-label="Close basket">&times;</button>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+    <div class="drawer-foot" id="drawerFoot"></div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <strong>Paprika & Pine Spice Co.</strong>
+        <p>214 Spice Row, Clarksville, Tennessee</p>
+        <p>Open Monday to Saturday, 9 AM to 6 PM. Closed Sundays.</p>
+      </div>
+      <div>
+        <strong>Good to know</strong>
+        <p><a href="visit.html">Visit &amp; workshops</a> &middot; <a href="cart.html">Basket &amp; checkout</a></p>
+        <p>A fictional portfolio concept by Brittany Nation. No real orders are placed.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shop.js"></script>
+</body>
+</html>
